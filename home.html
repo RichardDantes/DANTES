@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Outfit Oasis Boutique Store</title>
+    <link rel="stylesheet" type="text/css" href="your-stylesheet.css">
+    <style>
+        /* Common styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Background gradient */
+        body {
+            background: linear-gradient(135deg, #8e9eab, #eef2f3);
+        }
+        /* Header styles */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-style: italic;
+        }
+        .logo img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            animation: logoSpin 5s linear infinite;
+        }
+        @keyframes logoSpin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        /* Navigation styles */
+        nav {
+            background-color: #444;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            transition: transform 0.3s, background-color 0.3s;
+            animation: bounce 0.5s ease infinite alternate;
+        }
+        nav a:hover {
+            background-color: #555;
+            border-radius: 5px;
+            transform: scale(1.1);
+        }
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-5px);
+            }
+        }
+        /* Video container styles */
+        .video-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .video-container iframe {
+            display: inline-block;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        /* Contact form styles */
+        .contact-form {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 300px;
+            padding: 8px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        .contact-form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .contact-form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        /* Pop-up message styles */
+        .popup-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 3em;
+            font-family: 'Cursive', sans-serif;
+            text-align: center;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        /* Footer styles */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+        footer p {
+            background-color: #444;
+            margin: 0;
+            padding: 10px 0;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAa3iOJJM5AP8_EfAWIX6gKvZd-uq-cbLue3dPxZ5HLMRNAf10yUv-VxZFAwNp4KAms48&usqp=CAU" alt="Outfit Oasis Boutique Logo">
+        </div>
+        <h1>Welcome to Outfit Oasis Boutique Store</h1>
+        <p>Discover a sanctuary of style where every piece tells a story.</p>
+        <p>Welcome to Outfit Oasis, your ultimate destination for chic and curated fashion finds. Discover a sanctuary of style where every piece tells a story, and every visit promises a new adventure in fashion.</p>
+        <form action="#" method="GET">
+            <input type="text" name="search" placeholder="Search...">
+            <input type="submit" value="Search">
+        </form>
+    </header>
+    <nav>
+        <a href="home.html" id="home-link">Home</a>|
+        <a href="products.html">Products</a>|
+        <a href="aboutus.html">About Us</a>|
+        <a href="contactus.html">Contact Us</a>|
+           </nav>
+    <div class="video-container">
+        <iframe width="656" height="369" src="https://www.youtube.com/embed/Q6svpu85eBE" title="Todd Snyder Spring '23 &quot;Lisbon Calling&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <h1 style="font-family: 'Roboto', sans-serif; color: black; text-align: center; margin-top: 30px;">Product Audio - About Todd Snyder</h1>
+<audio controls style="display: block; margin: 0 auto;">
+        <source src="productaudtio.mp3.mp3">
+    </audio>
+    <div class="contact-form">
+        <h2>Contact Form</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <!-- Pop-up message -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup-message" id="popup-message">
+        Welcome to Outfit Oasis Boutique Store
+    </div>
+    <footer>
+        &copy; 2024 Outfit Oasis Boutique Store. All rights reserved.
+    </footer>
+    <script>
+        document.getElementById('home-link').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default action (navigation)
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('popup-message').style.display = 'block';
+
+            // Hide the message after 3 seconds
+            setTimeout(function() {
+                document.getElementById('overlay').style.display = 'none';
+                document.getElementById('popup-message').style.display = 'none';
+            }, 3000);
+        });
+
+        document.getElementById('overlay').addEventListener('click', function() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('popup-message').style.display = 'none';
+        });
+    </script>
+    <script src="products.js"></script>
+</body>
+</html>

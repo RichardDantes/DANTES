@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Outfit Oasis Boutique Store</title>
+    <style>
+	.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scrolling if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px; /* Location of the box */
+}
+
+.modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scrolling if needed */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px; /* Location of the box */
+        }
+
+        .modal > div {
+            background-color: #fefefe;
+            margin: 5% auto; /* 5% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* Modal Close Button */
+        .modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .modal-close:hover,
+        .modal-close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .cart-icon {
+            font-size: 24px; /* Adjust the size as needed */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-style: italic; /* Make the font cursive */
+            animation: fadeInDown 1s ease-in-out forwards; /* Header animation */
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px 0;
+            text-align: center;
+            animation: slideInLeft 1s ease-in-out forwards; /* Navigation animation */
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            animation: fadeIn 1s ease-in-out forwards; /* Navigation links animation */
+        }
+
+        nav a:hover {
+            background-color: #555;
+            border-radius: 5px;
+            animation: navLinkHover 0.5s forwards;
+            transform: scale(1.1);
+        }
+
+        @keyframes navLinkHover {
+            0% {
+                background-color: #444;
+            }
+            50% {
+                background-color: #555;
+            }
+            100% {
+                background-color: #444;
+            }
+        }
+
+        .logo img {
+            max-width: 150px; /* Adjust the maximum width of the logo */
+            height: auto;
+        }
+
+        .product-table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            animation: fadeIn 1s ease-in-out forwards; /* Product table animation */
+        }
+
+        .product-table th, .product-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .product-table th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .product-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .product-table tr:hover {
+            background-color: #ddd;
+        }
+
+        .product-card {
+            transition: box-shadow 0.3s, transform 0.3s; /* Added transition */
+        }
+
+        .product-card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: scale(1.05);
+        }
+
+        .add-to-cart {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            animation: fadeIn 1s ease-in-out forwards; /* Add to cart button animation */
+        }
+
+        .add-to-cart:hover {
+            background-color: #45a049;
+            transform: scale(1.1); /* Add a slight scale effect on hover */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            clear: both;
+            animation: footerSlide 1s ease-in-out forwards; /* Footer animation */
+        }
+
+        @keyframes footerSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn { /* Added animation */
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown { /* Header animation */
+            0% {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft { /* Navigation animation */
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .add-to-cart {
+            animation: pulse 1s infinite alternate; /* Add pulsating animation to the Add to Cart button */
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Additional styling */
+        .product-table th, .product-table td {
+            transition: background-color 0.3s; /* Smooth transition for table row hover effect */
+        }
+
+        .product-table tr:hover {
+            background-color: #f0f0f0; /* Lighter background color on row hover */
+        }
+
+        body {
+            background: linear-gradient(135deg, #8e9eab, #eef2f3);    
+        }
+
+        #order-summary-modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        #order-summary-modal > div {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px; /* Limit the width of the modal */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Modal Close Button */
+        #order-summary-modal .modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #order-summary-modal .modal-close:hover,
+        #order-summary-modal .modal-close:focus {
+            color: black;
+            text-decoration: none;
+        }
+
+        /* Buyer's Information Form */
+        #buyer-info-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #buyer-info-form input[type="text"],
+        #buyer-info-form input[type="email"],
+        #buyer-info-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        #buyer-info-form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #buyer-info-form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Thank You Message */
+        #thank-you-message {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }  
+	  
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <!-- Circular Logo -->
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAa3iOJJM5AP8_EfAWIX6gKvZd-uq-cbLue3dPxZ5HLMRNAf10yUv-VxZFAwNp4KAms48&usqp=CAU" alt="Outfit Oasis Boutique Logo" style="border-radius: 50%; border: 5px solid #fff;">
+        </div>
+        <!-- Description -->
+        <p style="text-align: center; font-style: italic;">Welcome to Outfit Oasis, your ultimate destination for chic and curated fashion finds. Discover a sanctuary of style where every piece tells a story, and every visit promises a new adventure in fashion.</p>
+        <!-- Store Title and Search Bar -->
+        <h1 style="text-align: center; font-style: italic;">Welcome to my Outfit Oasis Boutique Store</h1>
+        <form action="#" method="GET" style="text-align: center;">
+            <input type="text" name="search" placeholder="Search...">
+            <input type="submit" value="Search">
+        </form>
+	    </header>
+    <nav style="text-align: center;">
+        <a href="home.html">Home</a>|
+        <a href="products.html">Products</a>|
+        <a href="aboutus.html">About Us</a>|
+        <a href="contactus.html">Contact Us</a>|
+       <a href="#" class="cart-icon">&#128722;</a> <!-- Added cart icon -->
+        <span id="cart-count">0</span>
+    </nav>
+
+    <!-- Category of Clothing Brands Categories -->
+    <div style="float: left; width: 20%; padding: 20px;">
+        <h2 style="font-family: 'Times New Roman', Times, serif;">Clothing Categories</h2>
+        <ul>
+            <li><a href="#">Outerwear</a></li>
+            <li><a href="#">Casual</a></li>
+            <li><a href="#">Jeans</a></li>
+            <li><a href="#">Dress</a></li>
+            <li><a href="#">Bodysuit</a></li>
+            <li><a href="#">Shirt</a></li>
+            <li><a href="#">Bathrobe</a></li>
+            <li><a href="#">Overalls</a></li>
+            <li><a href="#">Sock</a></li>
+            <li><a href="#">Wedding Dress</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Formal Attire</a></li>
+            <li><a href="#">Blouse</a></li>
+            <li><a href="#">Activewear</a></li>
+            <li><a href="#">Sleepwear</a></li>
+            <li><a href="#">Uniforms</a></li>
+            <li><a href="#">Sportswear</a></li>		
+        </ul>
+    </div>
+
+    <!-- Featured Products -->
+    <table class="product-table" style="float: right; width: 75%; font-family: 'Times New Roman', Times, serif;">
+        <tr>
+            <th>Product</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Buy Now!</th>
+        </tr>
+        <tr class="product-card"> <!-- Added product-card class -->
+            <td>
+                <b>Todd Synder</b><br>
+                <img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1580415843-ts-sale-7-1580415788.jpg?crop=1xw:1xh;center,top&resize=980:*" alt="Product 1" width="150">
+            </td>
+            <td>
+                Todd Snyder offers premium men's apparel, blending timeless sophistication with modern flair. Perfect for the discerning man seeking versatile and refined wardrobe essentials.
+            </td>
+            <td>$39.99</td>
+            <td>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </td>
+            <td><button class="add-to-cart">Add to Cart</button></td>
+        </tr>
+        <tr class="product-card"> <!-- Added product-card class -->
+            <td>
+                <b>Patagonia</b><br>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvWQu8BQThF5ZWNEeghyCyiDIV2juKSj0XiRQzr0Nr3BGpI97HZ6XDVx7AO86uyaKNkLM&usqp=CAU" alt="Product 2" width="160">
+            </td>
+            <td>
+                Patagonia offers sustainable and stylish men's business attire, combining high-quality materials with eco-friendly practices.
+            </td>
+            <td>$59.99</td>
+            <td>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </td>
+            <td><button class="add-to-cart">Add to Cart</button></td>
+        </tr>
+        <tr class="product-card"> <!-- Added product-card class -->
+            <td>
+                <b>Business Tie Classic Fashion Silk Necktie</b><br>
+                <img src="https://down-ph.img.susercontent.com/file/78348994edda4633042dcb47ae287903" alt="Product 3" width="170">
+            </td>
+            <td>
+                The "Business Tie Classic Silk Necktie" exudes sophistication and professionalism. Crafted from high-quality silk, it adds an elegant touch to any business attire, ensuring a polished and confident look for formal occasions.
+            </td>
+            <td>$29.99</td>
+            <td>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </td>
+            <td><button class="add-to-cart">Add to Cart</button></td>
+        </tr>
+        <tr class="product-card"> <!-- Added product-card class -->
+            <td>
+                <b>Oversized Wide Leg Pants for Women Streetwear Blue Baggy Jeans High Waist Loose Ladies Trousers</b><br>
+                <img src="https://m.media-amazon.com/images/I/712VPNu3pOL._AC_SY741_.jpg" alt="Product 4" width="160">
+            </td>
+            <td>
+                "Stay effortlessly chic with our Oversized Wide Leg Pants. Crafted for comfort and style, these streetwear-inspired blue baggy jeans feature a high waist design for a flattering fit. Elevate your wardrobe with these loose ladies trousers, perfect for any casual or semi-formal occasion."
+            </td>
+            <td>$34.99</td>
+            <td>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </td>
+            <td><button class="add-to-cart">Add to Cart</button></td>
+        </tr>
+        <!-- Additional 10 Products -->
+        <tr class="product-card">
+            <td>
+                <b>Levi's Men's 501 Original Fit Jeans</b><br>
+                <img src="https://i.ebayimg.com/images/g/fSUAAOSwdu9arv8Q/s-l1200.webp" alt="Product 5" width="150">
+            </td>
+            <td>
+                Classic and comfortable, Levi's 501 Original Fit Jeans are an iconic piece of fashion history, providing a versatile look that works for any casual setting.
+            </td>
+            <td>$59.99</td>
+            <td>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </td>
+            <td><button class="add-to-cart">Add to Cart</button></td>
+        </tr>
+        <tr class="product-card">
+            <td>
+                <b>Nike Air Max 270</b><br>
+                <img src="https://static.nike.com/a/images/t_default/qv3dvpnjrciy0nafb89a/air-max-270-shoes-2V5C4p.png" alt="Product 6" width="150">
+            </td>
+            <td>
+                The Nike Air Max 270 offers exceptional comfort and style with its large Air unit in the heel, making it perfect for both casual wear and athletic activities.
+            </td>
+            <td>$129.99</td>
+            <td>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </td>
+            <td><button class="add-to-cart">Add to Cart</button></td>
+        </tr>
+        <tr class="product-card">
+            <td>
+                <b>Ray-Ban RB2132 New Wayfarer Sunglasses</b><br>
+                <img src="https://images2.ray-ban.com//cdn-record-files-pi/9ab87ac0-9366-4f7f-b577-a359001b7bd7/4f090bee-bf65-444b-b850-ad2100087da7/0RB2132__901__STD__shad__qt.png?impolicy=RB_Product_clone&width=800&bgc=%23f2f2f2" alt="Product 7" width="150">
+            </td>
+            <td>
+                Ray-Ban's RB2132 New Wayfarer sunglasses offer a contemporary twist on a classic style, providing both UV protection and timeless fashion.
+            </td>
+            <td>$144.99</td>
+            <td>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </td>
+            <td><button class="add-to-cart">Add to Cart</button></td>
+        </tr>
+        <tr class="product-card">
+            <td>
+                <b>Calvin Klein Men's Dress Shirt</b><br>
+                <img src="https://media1.calvinklein.com/campaign/2021/February/20210211-Stain-Shield/MOBILE/Calvin_Klein-stain-shield-hero.jpg" alt="Product 8" width="150">
+            </td>
+            <td>
+                This Calvin Klein dress shirt combines modern style with classic tailoring, perfect for both professional and formal occasions.
+            </td>
+            <td>$49.99</td>
+            <td>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </td>
+            <td><button class="add-to-cart">Add to Cart</button></td>
+        </tr>
+        <tr class="product-card">
+            <td>
+                <b>Adidas Women's Ultraboost Running Shoes</b><br>
+                <img src="https://assets.adidas.com/images/w_600,f_auto,q_auto/ca5f722d3ce847a59d11577d051ce05a_9366/Ultraboost_Light_Running_Shoes_White_GY9352.jpg" alt="Product 9" width="150">
+            </td>
+            <td>
+                Adidas Ultraboost running shoes provide unmatched comfort and support, featuring a responsive Boost midsole and a sleek, adaptive design.
+            </td>
+            <td>$179.99</td>
+            <td>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </td>
+            <td><button class="add-to-cart">Add to Cart</button></td>
+        </tr>
+        <tr class="product-card">
+            <td>
+                <b>Michael Kors Women's Parker Stainless Steel Watch</b><br>
+                <img src="https://img.lazcdn.com/g/p/e565c73b4fa76e879ade424b866d7a5d.jpg_720x720q80.jpg" alt="Product 10" width="150">
+            </td>
+            <td>
+                The Michael Kors Parker watch features a sleek design with a stainless steel bracelet, perfect for adding a touch of elegance to any outfit.
+            </td>
+            <td>$195.00</td>
+            <td>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </td>
+            <td><button class="add-to-cart">Add to Cart</button></td>
+        </tr>
+        <tr class="product-card">
+            <td>
+                <b>Under Armour Men's Tech 2.0 Short-Sleeve T-Shirt</b><br>
+                <img src="https://underarmour.scene7.com/is/image/Underarmour/PS1363284-001_HB?rp=standard-0pad|pdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=566&hei=708&size=566,708" alt="Product 11" width="150">
+            </td>
+            <td>
+                The Under Armour Tech 2.0 T-Shirt offers superior comfort and performance, with moisture-wicking fabric to keep you dry and cool during any activity.
+            </td>
+            <td>$24.99</td>
+            <td>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </td>
+            <td><button class="add-to-cart">Add to Cart</button></td>
+        </tr>
+        <tr class="product-card">
+            <td>
+                <b>Ralph Lauren Women's Cable Knit Sweater</b><br>
+                <img src="https://i.ebayimg.com/images/g/WzYAAOSwlpNkLBM~/s-l400.jpg" alt="Product 12" width="150">
+            </td>
+            <td>
+                This Ralph Lauren cable knit sweater offers timeless style and comfort, perfect for layering during cooler months or as a standalone piece.
+            </td>
+            <td>$98.50</td>
+            <td>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </td>
+            <td><button class="add-to-cart">Add to Cart</button></td>
+        </tr>
+        <tr class="product-card">
+            <td>
+                <b>The North Face Men's Resolve 2 Jacket</b><br>
+                <img src="https://isteam.wsimg.com/ip/8e90d853-33d2-11e6-90e9-f04da2077796/ols/10407_original/:/rs=w:600,h:600" alt="Product 13" width="150">
+            </td>
+            <td>
+                The North Face Resolve 2 Jacket offers reliable waterproof protection and breathability, making it an essential for outdoor activities and everyday wear.
+            </td>
+            <td>$89.00</td>
+            <td>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </td>
+            <td><button class="add-to-cart">Add to Cart</button></td>
+        </tr>
+        <tr class="product-card">
+            <td>
+                <b>Columbia Women's Benton Springs Full Zip Fleece</b><br>
+                <img src="https://i.ebayimg.com/images/g/EZYAAOSwFotjifyG/s-l1600.jpg" alt="Product 14" width="150">
+            </td>
+            <td>
+                Columbia's Benton Springs fleece offers warmth and comfort with a classic fit, perfect for layering during cooler weather or as a cozy outer layer.
+            </td>
+            <td>$39.99</td>
+            <td>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </td>
+            <td><button class="add-to-cart">Add to Cart</button></td>
+        </tr>
+        <tr class="product-card">
+            <td>
+                <b>Tommy Hilfiger Men's Modern Essentials Long Sleeve Shirt</b><br>
+                <img src="https://i.ebayimg.com/images/g/3QIAAOSwOQ9fhKYJ/s-l400.jpg" alt="Product 15" width="150">
+            </td>
+            <td>
+                The Tommy Hilfiger Modern Essentials long sleeve shirt offers classic style and comfort, ideal for both casual and formal wear with its versatile design.
+            </td>
+            <td>$54.99</td>
+            <td>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </td>
+            <td><button class="add-to-cart">Add to Cart</button></td>
+		<div id="order-summary-modal" class="modal">
+        <div>
+            <span class="modal-close">&times;</span>
+            <h3>Order Summary</h3>
+            <!-- Container for displaying selected items -->
+            <div class="cart-items"></div>
+            <!-- Container for displaying total price -->
+            <div class="total"></div>
+            <!-- Buyer's Information Form -->
+            <form id="buyer-info-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+                <input type="submit" value="Proceed to Checkout">
+            </form>
+            <!-- Thank You Message -->
+            <p id="thank-you-message" style="display: none;">Thank you for your purchase!</p>
+        </div>
+    </div>
+
+        </tr>
+    </table>
+    <footer>
+        &copy; 2024 Outfit Oasis Boutique Store. All rights reserved.
+    </footer>
+	
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const cartIcon = document.querySelector(".cart-icon");
+    const modal = document.getElementById("order-summary-modal");
+    const modalClose = document.querySelector(".modal-close");
+    const buyerInfoForm = document.getElementById("buyer-info-form");
+    const cartItemsContainer = modal.querySelector(".cart-items"); // Update to select the cart-items within the modal
+    const totalContainer = modal.querySelector(".total"); // Update to select the total within the modal
+    const thankYouMessage = document.createElement("p"); // Create thank you message element
+    thankYouMessage.textContent = "Thank you for your purchase!";
+    let cart = [];
+
+    // Function to toggle modal display
+    function toggleModal() {
+        modal.style.display = modal.style.display === "block" ? "none" : "block";
+    }
+
+    // Function to update cart count
+    function updateCartCount() {
+        const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+        document.getElementById("cart-count").textContent = cartCount;
+    }
+
+    // Function to render cart items and calculate total price
+    function renderCartItems() {
+        cartItemsContainer.innerHTML = ""; // Clear previous cart items
+        let totalPrice = 0;
+        cart.forEach(item => {
+            const itemElement = document.createElement("div");
+            const itemPrice = item.price * item.quantity;
+            itemElement.textContent = `${item.quantity}x ${item.name} - $${itemPrice.toFixed(2)}`;
+            cartItemsContainer.appendChild(itemElement); // Append to the cart-items container within the modal
+            totalPrice += itemPrice;
+        });
+        totalContainer.textContent = `Total: $${totalPrice.toFixed(2)}`;
+    }
+
+    // Event listener for cart icon click to toggle modal
+    cartIcon.addEventListener("click", function() {
+        toggleModal();
+        renderCartItems();
+    });
+
+    // Event listener for modal close button click
+    modalClose.addEventListener("click", function() {
+        toggleModal();
+    });
+
+    // Event listener for modal outside click to close modal
+    window.addEventListener("click", function(event) {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    });
+
+    // Event listener for form submission
+    buyerInfoForm.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Display thank you message
+        buyerInfoForm.appendChild(thankYouMessage);
+
+        // Clear cart and update UI
+        cart = [];
+        updateCartCount();
+        renderCartItems();
+
+        // Close modal after a short delay
+        setTimeout(function() {
+            toggleModal();
+        }, 3000); // 3000 milliseconds = 3 seconds (adjust as needed)
+    });
+
+    // Event listener for "Add to Cart" button click
+    const addToCartButtons = document.querySelectorAll(".add-to-cart");
+    addToCartButtons.forEach((button, index) => {
+        button.addEventListener("click", function() {
+            const product = {
+                name: button.parentElement.parentElement.children[0].textContent.trim(),
+                price: parseFloat(button.parentElement.parentElement.children[2].textContent.slice(1)),
+                quantity: parseInt(button.parentElement.parentElement.children[3].children[0].value)
+            };
+            cart.push(product);
+            updateCartCount();
+        });
+    });
+});
+</script>
+    
+</body>
+</html>
